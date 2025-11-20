@@ -1,0 +1,248 @@
+
+html, body {
+  overflow-x: hidden;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+body{
+  overflow-y: hidden;
+}
+/* Add this to your global CSS */
+.no-scroll{
+  overflow-y:hidden;
+}
+.sgroll{
+  animation: loop 15s infinite linear
+}
+@keyframes loop{
+  from{
+    transform : translateX(200%);
+
+  }
+  to{
+    transform: translateX(-200%);
+  }
+}
+ .border-box {
+  margin:0 auto;
+  position: relative;
+  border-radius: 20px;
+  border-color:transparent;
+  overflow:visible;
+  
+  /* your content padding */z-index:0;
+/* so content stays visible */
+
+}
+@property --angle{
+syntax:"<angle>";
+initial-value: 0deg;
+inherits: false;
+}
+.border-box::after, .border-box::before{
+content:'';
+position:absolute;
+/* Small 5% segments */
+background-image:conic-gradient(from var(--angle),black 30%,hsl(0, 14%, 99%) 10%, black 60%, hsl(0, 20%, 98%) 110%);
+/* Second segment: 3% length (tiny segment) */
+height:100%;
+width:100%;
+z-index: -1;
+ filter: blur(3rem);
+padding:5px;
+  border-radius: 50px;
+
+
+animation:spin 18s linear infinite;
+ -webkit-mask: 
+  linear-gradient(#fff 0 0) content-box, 
+  linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+
+
+}
+
+@keyframes spin{
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+  @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+
+    @keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.9);
+  }
+}
+
+ .ohh {
+  margin: 10 auto;
+  position: relative;
+  border-radius: 20px;
+  padding: 2rem; /* some content inside */
+  background: black; /* so the glow is visible */
+  z-index: 0; /* so pseudo-elements can go behind */
+}
+
+.ohh::after,
+.ohh::before {
+  content: '';
+  position: absolute;
+  inset: 0; /* cover the element */
+  border-radius: 50px;
+  padding: 5px;
+background-color:black ;
+ 
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                 linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude; /* mask out content box */
+  z-index: -1;
+}
+.ohh::before {
+  filter: blur(3.5rem);
+  opacity: 0.8;
+}
+.ohh:hover::after,
+.ohh:hover::before {
+    background: conic-gradient( from var(--angle),transparent 70%,rgb(255, 254, 254));
+  animation: spin 1.5s linear infinite;
+}
+
+[data-cursor="scale"]:hover ~ .custom-cursor {
+  transform: scale(4);
+}
+#ring1{
+  width: 290px;
+  height: 290px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+
+}
+#ring1:nth-child(1){
+  border-bottom: 8px solid #0613ff;
+  animation: rotate1 2s linear infinite;
+}
+@keyframes rotate1{
+  from{
+    transform: rotateX(50deg) rotateZ(110deg);
+  }
+  to{
+    transform: rotateX(50deg) rotateZ(470deg);
+  }
+}
+#ring1:nth-child(2){
+  border-bottom: 8px solid #0613ff;
+  animation: rotate2 2s linear infinite;
+}
+@keyframes rotate2{
+  from{
+    transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+  }
+  to{
+    transform:  rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+  }
+}
+
+#ring1:nth-child(3){
+  border-bottom: 8px solid #0613ff;
+  animation: rotate3 2s linear infinite;
+}
+@keyframes rotate3{
+  from{
+    transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+
+  }
+  to{
+     transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+  }
+}
+#ring1:nth-child(4){
+  border-bottom: 8px solid #0613ff;
+  animation: rotate4 2s linear infinite;
+}
+@keyframes rotate4{
+  from{
+    transform: rotateX(70deg) rotateZ(270deg);
+  }
+  to{
+    transform: rotateX(70deg) rotateZ(630deg);
+  }
+}
+
+#ring{
+  width: 290px;
+  height: 290px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+}
+#ring:nth-child(1){
+  border-bottom: 8px solid #ff0606;
+  animation: rotate1 2s linear infinite;
+}
+@keyframes rotate1{
+  from{
+    transform: rotateX(50deg) rotateZ(110deg);
+  }
+  to{
+    transform: rotateX(50deg) rotateZ(470deg);
+  }
+}
+#ring:nth-child(2){
+  border-bottom: 8px solid #ff0606;
+  animation: rotate2 2s linear infinite;
+}
+@keyframes rotate2{
+  from{
+    transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+  }
+  to{
+    transform:  rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+  }
+}
+
+#ring:nth-child(3){
+  border-bottom: 8px solid #ff0606;
+  animation: rotate3 2s linear infinite;
+  
+}
+@keyframes rotate3{
+  from{
+    transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+
+  }
+  to{
+     transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+  }
+}
+#ring:nth-child(4){
+  border-bottom: 8px solid #ff0606;
+  animation: rotate4 2s linear infinite;
+ 
+}
+@keyframes rotate4{
+  from{
+    transform: rotateX(70deg) rotateZ(270deg);
+  }
+  to{
+    transform: rotateX(70deg) rotateZ(630deg);
+  }
+}
